@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="asteroid"
+            type="com.example.nasa.model.Asteroid" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                app:isHarm="@{asteroid}"
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                tools:src="@drawable/asteroid_hazardous"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+
+            <TextView
+                android:id="@+id/closeApproachDateKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/close_approach_date"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+
+            <TextView
+                android:id="@+id/closeApproachDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{asteroid.closeApproachDate}"
+                app:layout_constraintTop_toBottomOf="@id/closeApproachDateKey"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+
+
+            <LinearLayout
+                android:id="@+id/absMagKey"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/closeApproachDateValue"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sbosulte_magniute"
+                    android:textStyle="bold"
+
+                    android:layout_marginTop="@dimen/small_spacing"
+                    android:layout_marginStart="@dimen/medium_spacing"
+                    android:layout_marginEnd="@dimen/medium_spacing" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/baseline_question_mark_24"
+                    android:contentDescription="@string/explain_the_unit_of_the_asteroid_magniutude"
+                    android:id="@+id/infoButton"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content">
+
+                </ImageView>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/absMagVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:astronomicalUnitText="@{asteroid.absoluteMagnitude}"
+                app:layout_constraintTop_toBottomOf="@id/absMagKey"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+
+            <TextView
+                android:id="@+id/estDiKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/estimated_diameter"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/absMagVal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing"
+
+                />
+
+            <TextView
+                android:id="@+id/estDiVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintTop_toBottomOf="@id/estDiKey"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                app:kmUnitText="@{asteroid.estimatedDiameter}"
+
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+
+
+            <TextView
+                android:id="@+id/relVelKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/estimated_diameter"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/estDiVal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing"
+
+                />
+
+            <TextView
+                android:id="@+id/relVelVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:velocityText="@{asteroid.relativeVelocity}"
+                tools:text="IAM LOSER"
+                app:layout_constraintTop_toBottomOf="@id/relVelKey"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+
+            <TextView
+                android:id="@+id/distKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/estimated_diameter"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/relVelVal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing"
+
+                />
+
+            <TextView
+                android:id="@+id/distVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                tools:text="IAM LOSER"
+                app:layout_constraintTop_toBottomOf="@id/distKey"
+                app:kmUnitText="@{asteroid.distanceFromEarth}"
+
+
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

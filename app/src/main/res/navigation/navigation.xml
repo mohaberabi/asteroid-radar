@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/asteroidFragment">
+
+    <fragment
+        android:id="@+id/asteroidFragment"
+        android:name="com.example.nasa.ui.AsteroidFragment"
+        android:label="AsteroidFragment">
+        <action
+            android:id="@+id/action_asteroidFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.nasa.ui.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="asteroid"
+            app:argType="com.example.nasa.model.Asteroid" />
+    </fragment>
+</navigation>

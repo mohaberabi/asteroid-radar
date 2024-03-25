@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="asteroid"
+            type="com.example.nasa.model.Asteroid" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+
+        android:contentDescription="@string/press_me_so_you_can_navigate_to_the_details_of_me"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:id="@+id/asteroidCodeName"
+            android:text="@{asteroid.codename}"
+            tools:text="lkasdlaksdnaslkdnsalkdnaslkd"
+            android:contentDescription="@{asteroid.codename}"
+
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/medium_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/asteroidApproachDate"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:id="@+id/asteroidApproachDate"
+            android:text="@{asteroid.closeApproachDate}"
+            android:textColor="@color/white"
+            tools:text="asasasasdsa"
+            app:layout_constraintTop_toBottomOf="@+id/asteroidCodeName"
+            android:layout_margin="@dimen/medium_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@{asteroid.closeApproachDate}"
+
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/statusImage"
+            app:layout_constraintTop_toBottomOf="@+id/asteroidApproachDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:src="@drawable/ic_status_normal"
+            app:status="@{asteroid.potentiallyHazardous}"
+            app:isHarm="@{asteroid}"
+            android:layout_height="wrap_content">
+
+        </ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

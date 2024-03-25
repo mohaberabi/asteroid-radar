@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <!-- Add your dialog content here -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:contentDescription="@string/astronomica_unit_explanation"
+        android:text="@string/astronomica_unit_explanation" />
+
+    <TextView
+        android:layout_gravity="end"
+        android:id="@+id/accpetButton"
+        android:layout_width="wrap_content"
+        android:textColor="@color/red"
+        android:text="Accepter"
+        android:contentDescription="@string/press_to_dismiss"
+        android:layout_height="wrap_content">
+
+    </TextView>
+</LinearLayout>
